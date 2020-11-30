@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: "$project.rootDir/tools/properties.gradle"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "k.c.horialtal.move.sheet.kc_inlinedemo"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 11231
+        versionName "1.0.0_kc"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    productFlavors {
+        project.ext.initEnvirnoment("ElegAcesKc")
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation rootProject.ext.dependencies["org.jetbrains.kotlin:kotlin-stdlib"]
+    implementation rootProject.ext.dependencies["androidx.core:core-ktx"]
+    implementation rootProject.ext.dependencies["androidx:appcompat"]
+    implementation rootProject.ext.dependencies["com.google.android.material:material"]
+    implementation rootProject.ext.dependencies["androidx.constraintlayout:constraintlayout"]
+
+
+
+    implementation rootProject.ext.dependencies["androidx.navigation:navigation-fragment-ktx"]
+    implementation rootProject.ext.dependencies["androidx.navigation:navigation-ui-ktx"]
+
+    implementation rootProject.ext.dependencies["androidx.lifecycle:lifecycle-extensions"]
+
+
+    testImplementation rootProject.ext.dependencies["junit:junit"]
+    androidTestImplementation rootProject.ext.dependencies["androidx.test.ext:junit"]
+    androidTestImplementation rootProject.ext.dependencies["androidx.test.espresso:espresso-core"]
+
+
+
+    implementation rootProject.ext.dependencies["androidx.recyclerview:recyclerview"]
+}
