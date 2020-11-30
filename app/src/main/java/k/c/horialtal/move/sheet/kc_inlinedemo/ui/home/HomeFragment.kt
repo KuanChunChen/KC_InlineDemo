@@ -14,7 +14,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import k.c.horialtal.move.sheet.kc_inlinedemo.InlineUtil
 import k.c.horialtal.move.sheet.kc_inlinedemo.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +40,25 @@ class HomeFragment : Fragment() {
 
 
     private fun initView(){
+
+        val inlineUtil = InlineUtil()
+
+
+        inlineUtil.getMinutes1(hours = 3)
+        inlineUtil.getMinutes2(hours = 3)
+        inlineUtil.getMinutes3(hours = 3, lambda = { println(it) })
+
+        inlineUtil.getMinutes4(hours = 3, lambda = { println(it) })
+
+        inlineUtil.getMinutes5(hours = 3,
+            lambda1 = { println(it) },
+            lambda2 = { println(it) },
+            lambda3 = { println(it) }
+        )
+
+
+
+
 
 
     }
